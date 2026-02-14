@@ -1,6 +1,6 @@
 [package]
 name = "toml_writer"
-version = "1.0.6+spec-1.1.0"
+version = "1.0.7"
 description = """
 A low-level interface for writing out TOML
 """
@@ -33,9 +33,9 @@ alloc = []
 [dependencies]
 
 [dev-dependencies]
-proptest = "1.7.0"
-snapbox = "0.6.21"
-toml_old = { version = "0.5.11", package = "toml" }
+proptest = { workspace = true }
+snapbox = { workspace = true }
+toml_old = { workspace = true }
 
 [lints]
 workspace = true

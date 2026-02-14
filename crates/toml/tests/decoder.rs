@@ -46,7 +46,8 @@ fn value_to_decoded(
         toml::Value::Float(v) => Ok(toml_test_harness::DecodedValue::Scalar(
             toml_test_harness::DecodedScalar::from(*v),
         )),
-        toml::Value::Datetime(mut v) => {
+        toml::Value::Datetime(v) => {
+            let mut v = *v;
             if let Some(time) = &mut v.time {
                 if time.second.is_none() {
                     time.second = Some(0);

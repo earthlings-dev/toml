@@ -12,8 +12,8 @@ release = false
 cargo-fuzz = true
 
 [dependencies]
-libfuzzer-sys = "0.4.10"
-toml_edit = { path = "../toml_edit" }
+libfuzzer-sys = { workspace = true }
+toml_edit = { workspace = true }
 
 [[bin]]
 name = "parse_document"

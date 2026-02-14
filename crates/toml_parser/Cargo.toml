@@ -1,6 +1,6 @@
 [package]
 name = "toml_parser"
-version = "1.0.8+spec-1.1.0"
+version = "1.0.9"
 description = "Yet another format-preserving TOML parser."
 categories = ["encoding", "parser-implementations", "parsing", "config"]
 keywords = ["encoding", "toml", "no_std"]
@@ -33,14 +33,14 @@ unsafe = []
 debug = ["std", "dep:anstream", "dep:anstyle"]
 
 [dependencies]
-anstream = { version = "0.6.20", optional = true }
-anstyle = { version = "1.0.11", optional = true }
-winnow = { version = "0.7.13", default-features = false }
+anstream = { workspace = true, optional = true }
+anstyle = { workspace = true, optional = true }
+winnow = { workspace = true, default-features = false }
 
 [dev-dependencies]
-anstream = { version = "0.6.20", features = ["test"] }
-snapbox = "0.6.21"
-toml_datetime = { path = "../toml_datetime" }
+anstream = { workspace = true, features = ["test"] }
+snapbox = { workspace = true }
+toml_datetime = { workspace = true }
 
 [lints]
 workspace = true

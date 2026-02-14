@@ -37,12 +37,11 @@ fn t(decoded: &str, expected: impl IntoData) {
     // bump
     let toml = format!("{} = {}", results.key_default, results.string_default);
     dbg!(&toml);
-    let value = toml.parse::<toml_old::Value>();
-    let value = match value {
-        Ok(value) => value,
+    let table = toml.parse::<toml_old::Table>();
+    let table = match table {
+        Ok(table) => table,
         Err(err) => panic!("could not parse: {err}"),
     };
-    let table = value.as_table().unwrap();
     let (key, value) = table.iter().next().unwrap();
     assert_eq!(key, decoded);
     assert_eq!(value.as_str().unwrap(), decoded);
@@ -591,12 +590,11 @@ proptest! {
 
         let toml = format!("{key_default} = {string_default}");
         dbg!(&toml);
-        let value = toml.parse::<toml_old::Value>();
-        let value = match value {
-            Ok(value) => value,
+        let table = toml.parse::<toml_old::Table>();
+        let table = match table {
+            Ok(table) => table,
             Err(err) => panic!("could not parse: {err}"),
         };
-        let table = value.as_table().unwrap();
         let (key, value) = table.iter().next().unwrap();
         assert_eq!(*key, decoded);
         assert_eq!(value.as_str().unwrap(), decoded);

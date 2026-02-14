@@ -5,8 +5,8 @@ resolver = "2"
 [workspace.package]
 repository = "https://github.com/toml-rs/toml"
 license = "MIT OR Apache-2.0"
-edition = "2021"
-rust-version = "1.76"  # MSRV
+edition = "2024"
+rust-version = "1.93"
 include = [
   "build.rs",
   "src/**/*",
@@ -16,6 +16,40 @@ include = [
   "README.md",
   "examples/**/*"
 ]
+
+[workspace.dependencies]
+anstream = "1.0.0"
+anstyle = "1.0.13"
+divan = "0.1.21"
+foldhash = { version = "0.2.0", default-features = false }
+indexmap = { version = "2.13.0", default-features = false, features = ["std"] }
+itertools = "0.14.0"
+lexopt = "0.3.1"
+libfuzzer-sys = "0.4.12"
+proptest = "1.10.0"
+serde = { version = "1.0.228", features = ["derive"] }
+serde-untagged = "0.1.9"
+serde_core = { version = "1.0.228", default-features = false, features = ["alloc"] }
+serde_derive = "1"
+serde_json = "1.0.149"
+serde_spanned = { version = "1.0.5", path = "crates/serde_spanned", default-features = false, features = ["alloc", "serde"] }
+snapbox = "1.0.0"
+toml = { version = "1.0.2", path = "crates/toml" }
+toml-test-data = "2.4.0"
+toml-test-harness = { version = "1.4.0", features = ["snapshot"] }
+toml_datetime = { version = "1.0.1", path = "crates/toml_datetime", default-features = false, features = ["alloc", "serde"] }
+toml_edit = { version = "0.25.2", path = "crates/toml_edit", features = ["serde"] }
+toml_old = { version = "1.0.1", package = "toml" }
+toml_parser = { version = "1.0.9", path = "crates/toml_parser", default-features = false, features = ["alloc"] }
+toml_types = { version = "1.0.2", package = "toml", path = "crates/toml", default-features = false, features = ["serde", "preserve_order"] }
+toml_writer = { version = "1.0.7", path = "crates/toml_writer", default-features = false, features = ["alloc"] }
+walkdir = "2.5.0"
+winnow = { version = "0.7.14", default-features = false }
+
+[patch.crates-io]
+serde = { git = "https://github.com/earthlings-dev/serde.git" }
+serde_core = { git = "https://github.com/earthlings-dev/serde.git" }
+serde_derive = { git = "https://github.com/earthlings-dev/serde.git" }
 
 [workspace.lints.rust]
 rust_2018_idioms = { level = "warn", priority = -1 }

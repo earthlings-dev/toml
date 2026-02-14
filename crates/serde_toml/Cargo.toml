@@ -1,6 +1,6 @@
 [package]
 name = "serde_toml"
-version = "0.0.1"
+version = "0.0.2"
 description = "See instead `toml`"
 categories = ["encoding", "parser-implementations", "parsing", "config"]
 keywords = ["encoding", "toml"]
