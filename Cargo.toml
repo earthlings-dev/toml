@@ -47,9 +47,9 @@ walkdir = "2.5.0"
 winnow = { version = "0.7.14", default-features = false }
 
 [patch.crates-io]
-serde = { git = "https://github.com/earthlings-dev/serde.git" }
-serde_core = { git = "https://github.com/earthlings-dev/serde.git" }
-serde_derive = { git = "https://github.com/earthlings-dev/serde.git" }
+serde = { path = "../serde/serde" }
+serde_core = { path = "../serde/serde_core" }
+serde_derive = { path = "../serde/serde_derive" }
 
 [workspace.lints.rust]
 rust_2018_idioms = { level = "warn", priority = -1 }
